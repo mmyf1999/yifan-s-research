@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{parskip}
+\usepackage{natbib}
+\usepackage{xcolor}
+\geometry{margin=1in}
+
+\title{The Impact of Environmental Administrative Penalties on Firms' Green Technological Innovation}
+\author{Yifan Mao}
+\date{September 2025}
+
+\begin{document}
+\pagecolor[rgb]{0.80,0.91,0.81} 
+\maketitle
+
+\textbf{Research Question}
+
+I want to study how environmental administrative penalties affect firms’ green technological innovation in China. My research question is: Do these penalties encourage firms to innovate more in green technology? And what’s the mechanism behind it?
+
+From what I’ve read, most studies focus on environmental regulations like emission standards or resource controls during the process, but they don’t look much at penalties applied after violations happen. Also, they often use macro-level data before 2018 and miss how penalties interact with other policies, like government subsidies. My study could add to the literature by looking at firm-level effects, especially with stronger penalties since 2018 when China has been stricter with environmental penalties.
+
+This question matters because it could show if penalties really encourage firms to innovate or just make them pay fines without changing. If penalties lead to more green patents, it supports the Porter Hypothesis that regulation can spark innovation. Even if results show penalties don’t work well, it could still contribute by suggesting better policy designs. The contribution doesn’t fully depend on results going one way—any clear finding on how firms react helps.
+
+\textbf{Economic Framework and Empirical Design}
+
+Following Varian(2016), the decision-makers are firm managers. They face constraints like direct penalty costs (fines), indirect costs (like reputation loss or higher financing costs), and the costs of complying with regulations or investing in green tech. Firms interact with the government through penalties for pollution and with markets through investor or media reactions. I think some firms keep polluting if penalties are low, which isn’t what we’d expect if regulations work well. Stronger penalties since 2018 could push firms to innovate to avoid costs.
+
+I want to show reduced-form results: Does higher penalty lead to more green patents? I’ll use a panel data model with fixed effects for firm, year, and industry to control for differences across time, regions, and sectors. The design needs penalty data that varies over time and across firms, plus firm-level patent and financial data.
+
+The baseline model is:
+
+\[ Tgreen_{i,t} = \beta_0 + \beta_1 fine_{i,t} + \beta_n \mathbf{X}_{i,t} + \Sigma Area + \Sigma Year + \Sigma Ind + \varepsilon_{i,t} \]
+
+Here, $Tgreen_{i,t}$ is ln(green patents +1) for firm $i$ in year $t$, $fine_{i,t}$ is penalty amount over total assets times 1000, and $\mathbf{X}_{i,t}$ includes controls like firm size, leverage, and cash flow. I also test $Tgreen_{i,t+1}$ to account for time lags in innovation.
+
+Assumptions: Environmental administrative penalties drive firms to pursue green technological innovation(H1). For robustness, I use Heckman two-step and PSM to address endogeneity, and I test alternative variables (e.g., penalty frequency vs. intensity). To simplify, I could focus on heavy polluters, who face stricter enforcement.
+
+I guess penalties drive innovation through two mechanisms: (1) media attention (H2), increasing external pressure, and (2) higher R\&D spending (H3), as firms invest to comply. I also test a peer effect (H4): Do penalties on one firm push similar firms to innovate?
+
+Preliminary results (Table \ref{tab:results}) show $fine$ has a positive effect (0.422***, t=4.10) on $Tgreen$, supporting H1. This holds with controls and fixed effects (R2=0.536, N=5023).
+
+\begin{table}[h]
+\centering
+\caption{Effect of Environmental Penalties on Green Innovation}
+\label{tab:results}
+\begin{tabular}{lccc}
+\toprule
+Variable & (3) Tgreen \\
+\midrule
+fine & 0.422*** (0.103) \\
+Constant & -11.398*** (0.855) \\
+Controls & Yes \\
+Observations & 5023 \\
+R2 & 0.536 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Data}
+
+I wanna use hand-collected penalty data from government announcements (via Qingyue Data) for A-share listed firms from 2015-2020, matched with financial data from Wind/CSMAR and green patent data from SIPO (using WIPO’s IPC green classification). Penalty data isn’t fully public. The sample has 5023 observations after dropping ST firms, financial firms, and missing data.
+
+Units are firms, data is yearly (panel, longitudinal), covering 2015-2020. This supports the design by providing time and firm variation. Key variables: green innovation (ln green patents +1), penalty intensity (fines/assets*1000), controls (size, leverage, cash flow, growth, etc.). Missing subsidy data can be sourced from CSMAR (I am trying to obtain it). An ideal dataset should come from conducting experiments by penalty changes, but I think public data works with my model.
+
+The data fits the framework: Penalties vary by firm and year, letting me test their impact on innovation while controlling for firm characteristics. I can also explore mechanisms like media attention (news coverage data) and R\&D (expenditure and staff data).
+
+\end{document}
