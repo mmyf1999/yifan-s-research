@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{parskip}
+\usepackage{natbib}
+\geometry{margin=1in}
+\title{The Effect of Universal Basic Income Pilots on Household Savings Behavior}
+\author{Yifan Mao}
+\date{September 2025}
+\begin{document}
+\maketitle
+
+\textbf{Research Question}
+Universal Basic Income (UBI) is a policy where everyone receives regular, unconditional cash payments, regardless of income or employment status, aiming to reduce poverty, inequality while simplifying welfare systems (\citet{hanna2018universal}). I want to study how UBI pilots affect household savings behavior, especially in developing countries. My main question is: Does UBI reduce savings by lowering precautionary motives, or increase savings for investments like entrepreneurship? I’m also interested in mechanisms, like how UBI changes consumption smoothing.
+
+Most studies on UBI focus on labor supply (\citet{de2020there}), mental health (\citet{wilson2021mental}), or poverty reduction (\citet{hanna2018universal}), but few explore savings, particularly in regions like Kenya or India where pilots occurred. My study fills this gap by examining UBI as an exogenous income shock on savings decisions. Since pilots started around 2016, recent data can capture these effects. This matters because UBI could inform better policy design of social security.
+
+\textbf{Data and Empirical Design}
+I plan to use microdata from UBI pilots, but I do not have complete data yet. In Kenya, the non-profit organization GiveDirectly conducted a pilot from 2016 to 2020, distributing monthly cash payments of approximately 20–40 USD to 20,000 rural households to study impacts on poverty and behavior, with data on savings (bank balances), consumption (food, education), income, and demographics, publicly accessible after cleaning incomplete records. In India, the Self-Employed Women’s Association (SEWA), in collaboration with the United Nations Development Programme (UNDP), ran a pilot from 2011 to 2013, giving monthly payments of 200–300 rupees to families in select villages to test effects on poverty and education, with partial data available through UNDP or researchers, though full datasets require formal requests. In Finland, the Social Insurance Institution (KELA) implemented a pilot from 2017 to 2018, providing 560 euros monthly to 2,000 unemployed individuals to assess employment and well-being, with data accessible via application. Missing data, like detailed consumption breakdowns, may be supplemented by Kenya’s Demographic and Health Surveys (DHS). I will apply for restricted datasets later, but currently I do not have complete data in hand.
+
+Once obtained, I will build a panel dataset (yearly, 2016–2020, ~80,000 observations after cleaning). I will first run a reduced-form regression to estimate UBI’s effect:
+
+\[
+\text{SavingsRate}_{it} = \alpha + \beta \text{UBI}_{it} + \gamma X_{it} + \delta_i + \theta_t + \epsilon_{it}
+\]
+
+SavingsRate\(_{it}\) is savings divided by total income (\( s_t / (y_t + b_t) \)), UBI\(_{it}\) is the UBI amount (USD/month, treatment dummy or continuous), \( X_{it} \) includes controls (age, household size, education), \( \delta_i \) and \( \theta_t \) are household and time fixed effects, and \( \epsilon_{it} \) is the error term. \(\beta\) estimates UBI’s effect on savings. I will use instrumental variables (randomized pilot assignment) for robustness and cluster standard errors at the household level.
+
+\textbf{Potential Structural Model}
+I think structural analysis is very suitable for this kind of topic. I propose a simple structural model to explore whether UBI’s effect on savings is positive or negative, using knowledge from first-year macro course on Bellman equations. Households maximize lifetime utility:
+
+\[
+U = {E}_0 \sum_{t=0}^T \beta^t \frac{c_t^{1 - \gamma_i}}{1 - \gamma_i}
+\]
+
+subject to:
+
+\[
+a_{t+1} = (1 + r)(a_t + y_t + b_t - c_t)
+\]
+
+where \( c_t \) is consumption, \( a_t \) assets, \( y_t \) stochastic income (\(\log y_t = \rho \log y_{t-1} + \epsilon_t\)), \( b_t \) UBI, \( r \) interest rate, \( \beta \) discount factor, and \( \gamma_i \) risk aversion.
+
+The Bellman equation is:
+
+\[
+V_t(a_t, y_t; b_t) = \max_{c_t} \left\{ \frac{c_t^{1 - \gamma_i}}{1 - \gamma_i} + \beta {E}_t \left[ V_{t+1} \left( (1 + r)(a_t + y_t + b_t - c_t), y_{t+1}; b_{t+1} \right) \right] \right\}
+\]
+
+The Euler equation, from first-order conditions, is:
+
+\[
+c_t^{-\gamma_i} = \beta (1 + r){E}_t \left[ c_{t+1}^{-\gamma_i} \right]
+\]
+
+Savings is defined as:
+
+\[
+s_t = y_t + b_t + a_t - c_t
+\]
+
+UBI’s effect on savings is:
+
+\[
+\frac{\partial s_t}{\partial b_t} = - \frac{\partial c_t}{\partial b_t}
+\]
+
+Whether \(\frac{\partial c_t}{\partial b_t}\) is positive or negative requires further numerical simulation (e.g., via simulated method of moments), which I will do once data is available. I wish this model wll suggest UBI reduces precautionary savings by stabilizing income, but the exact effect needs calculation.
+
+\bibliographystyle{plainnat}
+\bibliography{reference.bib}
+\end{document}
