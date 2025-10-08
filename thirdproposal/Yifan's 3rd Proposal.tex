@@ -2,17 +2,18 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
 \usepackage{amsmath}
+\usepackage{natbib}
 \onehalfspacing
 
 \title{The Rise of Digital Platforms and the Challenge of Tax Compliance}
 \author{Yifan Mao}
-\date{\today}
+\date{September 2025}
 
 \begin{document}
 \maketitle
 
 \section*{Research Question}
-This project studies how mandatory reporting by digital platforms influences individual tax compliance and what this implies for tax policy design. Classic work by Allingham and Sandmo (1972) models a taxpayer who chooses reported income as a trade-off between tax savings and the probability of receiving penalties. Later studies confirm the central role of information. Kleven et al. (2011) show that compliance is nearly full when income is covered by third-party reporting in Denmark. Pomeranz (2015) finds that paper trail enforcement increased VAT compliance in Chile, while Naritomi (2019) shows that receipt lotteries improved compliance in Brazil. Other contributions, such as Guyton et al. (2021) for the United States, document how third-party reporting explains high compliance for wage income. Slemrod and Yitzhaki (2002) and Slemrod (2019) emphasize that information reporting is one of the most effective enforcement mechanisms. Based on this literature, my question is how the rise of digital platforms that record transactions and transmit data changes the compliance decision of small sellers. The policy relevance is high because both the European Union (DAC7, 2023) and the United States (revised 1099-K rules) have recently adopted platform reporting mandatory policies. The contribution is to extend the theoretical model of tax evasion to explicitly include platforms as information intermediaries and to test the predictions using these policy shocks.
+This project studies how mandatory reporting by digital platforms influences individual tax compliance and what this implies for tax policy design. Classic work by \citet{allingham1972income} models a taxpayer who chooses reported income as a trade-off between tax savings and the probability of receiving penalties. Later studies confirm the central role of information. \citet{kleven2011unwilling} show that compliance is nearly full when income is covered by third-party reporting in Denmark. \citet{pomeranz2015no} finds that paper trail enforcement increased VAT compliance in Chile, while \citet{naritomi2019consumers} shows that receipt lotteries improved compliance in Brazil. Other contributions, such as \citet{guyton2021tax} for the United States, document how third-party reporting explains high compliance for wage income. \citet{slemrod2002tax} and \citet{slemrod2019tax} emphasize that information reporting is one of the most effective enforcement mechanisms. Based on this literature, my question is how the rise of digital platforms that record transactions and transmit data changes the compliance decision of small sellers. The policy relevance is high because both the European Union (DAC7, 2023) and the United States (revised 1099-K rules) have recently adopted platform reporting mandatory policies. The contribution is to extend the theoretical model of tax evasion to explicitly include platforms as information intermediaries and to test the predictions using these policy shocks.
 
 \section*{Economic Framework and Empirical Design}
 The theoretical framework extends the Allingham-Sandmo model. Suppose an individual earns income $y$ and chooses reported income $r \leq y$. With tax rate $\tau$, the individual pays $\tau r$ in taxes. If underreporting $y-r$ is found, a penalty at rate $\theta$ is added by government. The expected utility is
@@ -24,7 +25,7 @@ where $\pi$ is the probability that underreporting is observed by the tax author
 Speaking of the empirical design, I will use policy shocks that increase $\pi_P$ exogenously. In the European Union, DAC7 requires platforms to report sellers’ income starting in 2023. In the United States, the 1099-K reporting threshold has been reduced in steps, expanding the set of taxpayers receiving third-party reports. I will study changes in reported income before and after these rules, comparing taxpayers more exposed to platforms with those less exposed. I think difference-in-differences and some other event-study framework may help. In this setting, the identifying assumption is that without the policy, trends in reporting would have been parallel. Pre-trend tests and flexible controls for sector and region will handle this assumption. By estimating how big the compliance response and substitution is, the empirical results can be used to calibrate the extended model and evaluate optimal policy enforcement.
 
 \section*{Data}
-The ideal data are administrative tax records that link self-reported income with third-party reports. Such data have been used in earlier work, including Danish administrative files in Kleven et al. (2011). In the European Union, new websites are being built to store DAC7 reports, and access is possible if I can get approval of those secure research labs. In the United States, IRS microdata are restricted, but some state tax authorities provide de-identified returns that include 1099-K information. In both cases, the unit is the taxpayer-year, and several years before and after the reform can be observed. Key variables include gross receipts, taxable income, and receipt of a third-party form. Control variables include sector, local unemployment, and demographic indicators and something else.
+The ideal data are administrative tax records that link self-reported income with third-party reports. Such data have been used in earlier work, including Danish administrative files in \citet{kleven2011unwilling}. In the European Union, new websites are being built to store DAC7 reports, and access is possible if I can get approval of those secure research labs. In the United States, IRS microdata are restricted, but some state tax authorities provide de-identified returns that include 1099-K information. In both cases, the unit is the taxpayer-year, and several years before and after the reform can be observed. Key variables include gross receipts, taxable income, and receipt of a third-party form. Control variables include sector, local unemployment, and demographic indicators and something else.
 
 As a practical starting point, I will construct proxy datasets using public sources. The website Inside Airbnb provides city-level listings and transaction counts, which can be matched to policy timing across regions. IRS public documentation records the phased rollout of 1099-K thresholds. Google Trends and household survey data can be proxy for the intensity of platform activity. These sources provide panel data at the city or region level, with outcomes such as average reported self-employment income and tax revenue. Although less precise than administrative microdata, they allow initial analysis while I continuously apply for restricted data. With this combination of sources, the project should be feasible and can deliver results in both the short run and the longer run once administrative access is approved.
 
@@ -37,35 +38,7 @@ As a practical starting point, I will construct proxy datasets using public sour
 \noindent \textbf{[AZ: I agree with Jorge's points. I think this is a potentially interesting question that could intersect market design with the tax evasion literature. Your proposal is vague as it currently stands. Also how do the data from Inside AirBnB connect to this idea? I see the rough idea, but it is super unclear. If you pursue this idea, I recommend being more specific and using less flowery and vague language. I do not want to make an unfair assumption, but this sounds too much like ChatGPT. If it is not, then make sure you are more specific and direct. If it is, I strongly suggest reducing your reliance on it.]}
 
 \newpage
-\begin{thebibliography}{9}\small
-\bibitem{AllinghamSandmo1972}
-Allingham, Michael G., and Agnar Sandmo. 1972. ``Income Tax Evasion: A Theoretical Analysis.'' \textit{Journal of Public Economics} 1(3--4): 323--338.
-
-\bibitem{KlevenEtAl2011}
-Kleven, Henrik J., Martin B. Knudsen, Claus T. Kreiner, S\o ren Pedersen, and Emmanuel Saez. 2011. ``Unwilling or Unable to Cheat? Evidence from a Tax Audit Experiment in Denmark.'' \textit{Econometrica} 79(3), 651-692.
-
-\bibitem{Pomeranz2015}
-Pomeranz, Dina. 2015. ``No Taxation without Information: Deterrence and Self-Enforcement in the Value Added Tax.'' \textit{American Economic Review} 105(8): 2539--2569.
-
-\bibitem{Naritomi2019}
-Naritomi, Joana. 2019. ``Consumers as Tax Auditors.'' \textit{American Economic Review} 109(9): 3031--3072.
-
-\bibitem{Guyton2021}
-Guyton, John, Patrick Langetieg, Daniel Reck, Max Risch, and Gabriel Zucman. 2021. ``Tax Evasion at the Top of the Income Distribution: Theory and Evidence.'' \textit{National Bureau of Economic Research}.
-
-\bibitem{SlemrodYitzhaki2002}
-Slemrod, Joel, and Shlomo Yitzhaki. 2002. ``Tax Avoidance, Evasion, and Administration.'' In \textit{Handbook of Public Economics}, Vol. 3, 1423--1470.
-
-\bibitem{Slemrod2019}
-Slemrod, Joel. 2019. ``Tax Compliance and Enforcement.'' \textit{Journal of Economic Literature} 57(4): 904--954.
-
-\bibitem{EuropeanCommissionDAC7}
-European Commission. 2023. ``DAC7 - Taxation and Customs Union
-'' 
-
-\bibitem{IRS1099K}
-Internal Revenue Service. 2025. ``Understanding Your Form 1099-K.''.
-
-\end{thebibliography}
+\bibliographystyle{plainnat}
+\bibliography{references_3}
 
 \end{document}
