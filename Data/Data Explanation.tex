@@ -1,0 +1,122 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{float}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{siunitx}
+\sisetup{
+  detect-mode,
+  input-signs = ,
+  input-symbols = (),
+  table-number-alignment = center,
+  round-mode = places,
+  round-precision = 3
+}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{parskip} 
+
+\title{Data Description \\ \vspace{6pt} \large Environmental Administrative Penalties and Firms' Green Technological Innovation}
+\author{Yifan Mao}
+\date{October 2025}
+
+\begin{document}
+
+\maketitle
+
+This study examines the effect of environmental administrative penalties on Chinese listed firms' green technological innovation. Our final sample includes A-share listed firms over 2015--2020. The environmental administrative penalty records are compiled by Qingyue Data based on penalty decisions published on government environmental authority websites. Firm financial data come from WIND and CSMAR. Patent application records are obtained from the China National Intellectual Property Administration (SIPO). Green patents are identified following the WIPO ``green patent'' IPC classification.
+
+The main sample construction and cleaning steps are: Exclude firms labeled ``ST'' during the sample period; Drop observations missing required variables used in the analysis; Exclude firms in the financial industry; Sum all penalty amounts for the same firm in the same year to obtain a firm-year total penalty amount.
+
+After matching and cleaning, the working sample contains 5,023 firm-year observations from 914 distinct listed firms (2015--2020). Among them, 1,456 firm-year observations have positive total penalty amounts. Table~\ref{tab:variables} lists the main variables used in the empirical analysis, their English dataset names and corresponding definitions.
+
+\begin{table}[H]
+\centering
+\caption{Variable definitions}
+\label{tab:variables}
+\begin{threeparttable}
+\small
+\begin{tabular}{p{3.0cm} p{3.5cm} p{7.0cm}}
+\toprule
+\textbf{Category} & \textbf{Variable name (dataset)} & \textbf{Definition / measurement} \\
+\midrule
+Dependent (green innovation) & \texttt{ln\_green\_applications\_total} (Tgreen) & $\ln$(\# green patent applications by firm and subsidiaries in year + 1). Green patents identified by WIPO IPC green classification. \\
+\midrule
+Core explanatory & \texttt{sumfine\_over\_total\_assets\_e3} (fine) & Total environmental penalty amount in a year divided by total assets, multiplied by 1,000. Higher value = stronger penalty intensity. \\
+ & \texttt{penalty\_count} & Number of environmental penalties in the firm-year. \\
+\midrule
+Controls & \texttt{size} (\texttt{lnSize}) & Natural log of total assets. \\
+ & \texttt{leverage} (\texttt{Lev}) & Total liabilities / total assets. \\
+ & \texttt{cashflow} (\texttt{Cfo}) & Net cash flows from operating activities / total assets. \\
+ & \texttt{firm\_growth} (\texttt{Growth}) & (Revenue$_t$ - Revenue$_{t-1}$) / Revenue$_{t-1}$. \\
+ & \texttt{historical\_performance} (\texttt{Lroa}) & Lagged net profit / lagged total assets. \\
+ & \texttt{market\_power} (\texttt{lnMarket}) & $\ln$(sales / operating cost). \\
+ & \texttt{capital\_intensity} (\texttt{lnDensity}) & $\ln$(fixed assets / employees). \\
+ & \texttt{management\_shareholding} (\texttt{Share}) & Management shareholdings as percentage. \\
+ & \texttt{pc} (PC) & CEO political background dummy (1 if CEO previously held government post). \\
+ & \texttt{listing\_age} (\texttt{lnAge}) & $\ln$(years since listing + 1). \\
+\midrule
+Mechanism / other & \texttt{r\_and\_d\_staff\_rate} & R\&D staff as share of employees. \\
+ & \texttt{ln\_rnd\_exp\_over\_total\_assets} & $\ln$(R\&D expenditure / total assets). \\
+ & \texttt{analyst\_attention01\_mean} & Mean analyst attention indicator. \\
+ & \texttt{media\_cover} (\texttt{sum\_news}) & Number of news items / media coverage measure. \\
+ & \texttt{esg\_increase} & ESG score increase (used in moderation tests). \\
+\midrule
+Spillover / province & \texttt{province\_max\_penalty\_intensity} & Province-level max penalty intensity; used for spillover tests. \\
+\midrule
+Panel identifiers & \texttt{id}, \texttt{pid}, \texttt{indid}, \texttt{year} & Firm id, province id, industry id, year. \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item \textit{Note:} English variable names are the column names in the prepared dataset (``\texttt{数据510\_exact\_columns\_english.xlsx}''). Variables with suffix ``\_w'' denote province-/peer-weighted averages used in robustness analyses.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+Table~\ref{tab:desc} reports descriptive statistics for the main variables used in the empirical analysis. The sample for these statistics is the final cleaned sample (5,023 firm-year observations, 2015--2020). The reported statistics are mean, minimum, maximum, and standard deviation.
+
+\begin{table}[H]
+\centering
+\caption{Descriptive statistics (selected variables)}
+\label{tab:desc}
+\begin{threeparttable}
+\small
+\begin{tabular}{lp{4.8cm}
+S[table-format=4.3] S[table-format=4.3] S[table-format=4.3] S[table-format=4.3]}
+\toprule
+\textbf{Variable type} & \textbf{Variable (dataset name)} & \textbf{Mean} & \textbf{Min} & \textbf{Max} & \textbf{Std. dev.} \\
+\midrule
+Dependent & \texttt{ln\_green\_applications\_total} (Tgreen) & 1.491 & 0.000 & 7.782 & 1.432 \\
+\midrule
+Core explanatory & \texttt{sumfine\_over\_total\_assets\_e3} (fine) & 0.013 & 0.000 & 3.885 & 0.088 \\
+\midrule
+\multirow{10}{*}{Controls}
+ & \texttt{size} (\texttt{lnSize}) & 23.022 & 19.530 & 29.950 & 1.491 \\
+ & \texttt{leverage} (\texttt{Lev}) & 0.484 & 0.014 & 1.181 & 0.191 \\
+ & \texttt{cashflow} (\texttt{Cfo}) & 0.054 & -0.362 & 0.652 & 0.064 \\
+ & \texttt{firm\_growth} (\texttt{Growth}) & 0.170 & -0.481 & 2.199 & 0.356 \\
+ & \texttt{historical\_performance} (\texttt{Lroa}) & 0.040 & -0.593 & 0.655 & 0.056 \\
+ & \texttt{market\_power} (\texttt{lnMarket}) & 4.291 & -1.775 & 4.525 & 0.278 \\
+ & \texttt{capital\_intensity} (\texttt{lnDensity}) & 14.621 & 10.870 & 18.700 & 0.900 \\
+ & \texttt{management\_shareholding} (\texttt{Share}) & 10.231 & 0.000 & 100.000 & 17.376 \\
+ & \texttt{pc} (PC) & 0.293 & 0.000 & 1.000 & 0.455 \\
+ & \texttt{listing\_age} (\texttt{lnAge}) & 2.396 & 0.000 & 3.434 & 0.746 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item \textit{Notes:} The descriptive statistics are computed on the final sample after cleaning (5,023 firm-year observations, 2015--2020). \texttt{sumfine\_over\_total\_assets\_e3} is penalty amount divided by total assets and multiplied by 1,000. \texttt{ln\_green\_applications\_total} is the log of (green patent applications + 1). Additional descriptive tables for mechanism and spillover variables are available in the appendix upon request.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+\end{document}
