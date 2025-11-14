@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{graphicx} 
+\usepackage{amsmath} 
+\usepackage{booktabs} 
+\usepackage{parskip} 
+\usepackage{hyperref} 
+\title{Empirical Design}
+\author{Yifan Mao}
+\date{October 2025}
+
+\begin{document}
+
+\maketitle
+
+\section*{Baseline Model}
+First, I'll use a fixed-effects regression model, which is good for my panel data:
+
+$$ Tgreen_{i,t} = \beta_0 + \beta_1 fine_{i,t} + \beta_n X_{i,t} + \Sigma FE + \epsilon_{i,t} $$
+
+\begin{itemize}
+    \item \textbf{$Tgreen_{i,t}$}: The dependent variable. It measures a firm's green innovation. I measure it as the logarithm of (1 + the number of green patent applications) in a given year.
+    \item \textbf{$fine_{i,t}$ }: The independent variable, which measures the intensity of the penalty, calculated as the total penalty amount divided by the firm's total assets.
+    \item \textbf{$X_{i,t}$ }: The control variables, including firm size, leverage (debt), cash flow, company growth, R\&D, CEO background, and firm age.
+    \item \textbf{$\Sigma FE$ }: The fixed effects. I will control for Industry, Province (Area), and Year fixed effects. 
+    \item I'll also check for a time lag by testing the effect on \textit{next year's} innovation ($Tgreen_{i,t+1}$).
+\end{itemize}
+
+
+
+\section*{Robustness Checks}
+\begin{itemize}
+    \item \textbf{Heckman Two-Step(Solving potential endogeneity)}
+        For example, what if penalties for small firms are not always reported? So I'll model the probability of a firm being fined, using the lagged average penalty of its peers (same industry/region) as an instrument.
+      
+    
+    \item \textbf{Propensity Score Matching(Solving potential endogeneity)}
+        Firms in treatment group might be very different from my control group. I'll use PSM to find a "twin" for each fined firm from the non-fined group. I'll match them based on all my control variables. I'll use 5 different matching methods (like k-nearest neighbor, caliper, etc.) to be sure.
+        
+    \item \textbf{Exclude Competing Policies}
+        Maybe the green innovation is caused by other government policies, not the penalties. So I'll re-run my model but I will exclude the effects of three other big policies: (1) The environmental Protection Tax, (2) The Emissions Trading System (ETS) pilots, and (3) The Carbon Trading pilots.
+        
+    \item \textbf{Substitute Variables}
+        Maybe my result only works because of how I measured my variables. So
+        I'll re-run everything using different measurements:
+            \begin{itemize}
+                \item For Tgreen (Innovation): I'll try using green patent \textit{rates} (as a \% of total patents) and green patent grants, not just applications).
+                \item For fine: I'll try using (1) penalty amount / revenue (instead of assets), (2) the simple \textit{number} of penalties (fine2), and (3) a dummy variable for whether penalties \textit{increased} from last year.
+            \end{itemize}
+
+    \item \textbf{Control for Firm Strategy.}
+        Maybe some firms are just "expansionist" and innovate a lot anyway, regardless of penalties. So I'll split my sample into groups based on their business strategy (conservative vs. expansionist) and also based on CEO "green experience". I'll test if the penalties only work for certain types of firms.
+
+\end{itemize}
+
+\section*{Mechanism Tests (how does it work?)}
+I'll test two main "channels":
+\begin{itemize}
+    \item \textbf{External Pressure (eg.Media):} Do penalties cause more media attention(like news)? And then media pressure forces the firm to innovate?
+    \item \textbf{Internal Resources (R\&D):} Do penalties force the firm to change its internal strategy? For example, does it hire more R\&D staff (increase R\&D rate), which then leads to innovation?
+\end{itemize}
+I'll test these using a two-step mediation analysis.
+
+\section*{Further Analysis}
+Finally, I'll explore some more topics:
+\begin{itemize}
+    \item \textbf{Amount vs. Count:} What matters more to a manager? The total amount of the fine or the number of times they get fined? I'll compare the results of fine (amount) and fine2 (count) in my mechanism tests.
+    
+    \item \textbf{Peer Effects:} Do firms innovate just by seeing their peers get fined? I'll test if the lagged average penalty of peers has an effect on firms that weren't fined themselves.
+    
+    \item \textbf{Moderating Effect} What happens when the government gives both a "stick" (penalty) and a "carrot" (subsidy)? Do government subsidies for environmental projects help or hurt the innovative effect of penalties? I'll test this using an interaction term (fine $\times$ subsidy).
+    
+\end{itemize}
+
+\end{document}
+
