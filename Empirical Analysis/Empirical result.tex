@@ -1,0 +1,596 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx} 
+\usepackage{threeparttable}
+\usepackage{setspace} 
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{longtable} 
+\onehalfspacing 
+\setlength{\parskip}{0.5em} 
+\title{Empirical Analysis of the Impact of Environmental Administrative Penalties on Corporate Green Technology Innovation}
+\author{Yifan Mao}
+\date{November 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Hypotheses}
+
+Based on the theoretical analysis of the characteristics of environmental administrative penalties, the Cost-Benefit Theory, and the Porter Hypothesis, we propose the following research hypotheses.
+
+\subsection{The Forcing Effect of Penalties}
+According to the Cost-Benefit Theory, companies make decisions to maximize profits. When facing environmental administrative penalties, companies weigh the "direct costs" (fines) and "indirect costs" (reputation loss) against the "compliance costs" and "transformation costs" of innovation.
+
+The Porter Hypothesis suggests that appropriate environmental regulations can force enterprises to carry out green technology innovation. Innovation can bring compensation benefits, such as higher production efficiency and better product competitiveness. When the intensity of penalties is high enough, the cost of violation exceeds the cost of compliance. To achieve long-term profit maximization, enterprises will choose to carry out green technology innovation.
+
+\begin{quote}
+    \textbf{Hypothesis 1 (H1):} Environmental administrative penalties drive corporate green technology innovation.
+\end{quote}
+
+\subsection{Transmission Mechanisms: Media and R\&D}
+Environmental administrative penalties exert external pressure and drive internal resource reallocation.
+
+First, regarding external pressure, penalties act as negative news that attracts media attention. Media coverage increases the "indirect costs" of violation (e.g., damage to corporate image). To restore their reputation and respond to stakeholder concerns, companies are motivated to improve their environmental performance through innovation.
+
+\begin{quote}
+    \textbf{Hypothesis 2 (H2):} Environmental administrative penalties drive corporate green technology innovation by increasing media attention.
+\end{quote}
+
+Second, regarding internal resources, penalties signal that existing technologies are insufficient to meet environmental standards. To solve the pollution problem fundamentally, companies need to allocate more resources to research and development (R\&D). Increasing R\&D investment and personnel allows companies to update their knowledge systems and achieve green transformation.
+
+\begin{quote}
+    \textbf{Hypothesis 3 (H3):} Environmental administrative penalties drive corporate green technology innovation by increasing corporate R\&D investment.
+\end{quote}
+
+\subsection{Peer Effects}
+According to social psychology and signaling theory, the decision-making of an enterprise is influenced by its peers. When the government imposes penalties on a violating enterprise, it sends a signal of strict law enforcement to other companies in the same region or industry.
+
+Observing the high costs paid by the penalized firm, peer enterprises will adjust their expectations of illegal costs and benefits. To avoid facing similar penalties in the future, peer enterprises will take proactive measures and carry out green technology innovation.
+
+\begin{quote}
+    \textbf{Hypothesis 4 (H4):} The intensity of environmental administrative penalties has a "peer effect," promoting green technology innovation in peer enterprises.
+\end{quote}
+
+\section{Empirical Design}
+
+\subsection{Baseline Model}
+Referencing the research of Guo et al. (2023) and Li Qingyuan and Xiao Zehua (2020), the baseline regression model is set as follows:
+
+\begin{equation} \label{eq:3-1}
+    Tgreen_{i,t} = \beta_0 + \beta_1 fine_{i,t} + \beta_n \mathbb{X}_{i,t} + \sum Area_{i,t} + \sum Year_{i,t} + \sum Ind_{i,t} + \varepsilon_{i,t}
+\end{equation}
+
+$Tgreen_{i,t}$ represents the green technology innovation ($Tgreen$) of listed company $i$ in year $t$. Considering that the impact of environmental administrative penalties on green technology innovation may not happen immediately, and there is a certain time lag from R\&D investment to patent output, we added the regression results of the green technology innovation level one period ahead ($Tgreen_{i,t+1}$) to ensure the robustness of the research. 
+
+$fine_{i,t}$ represents the intensity of environmental administrative penalties received by listed company $i$ in year $t$. $\mathbb{X}_{i,t}$ represents the set of control variables. Considering that environmental management measures in different regions and times may change, $Area$ and $Year$ are provincial and annual dummy variables to control for time and regional fixed effects. Considering that the capital, labor, and production factors of different industries vary greatly, and their responses to environmental administrative penalties differ, $Ind$ is an industry dummy variable to control for industry fixed effects. The industry classification is based on the "Guidelines for the Industry Classification of Listed Companies (2012 Revision)". To ensure the robustness of the research results, this paper also uses the Heckman two-step method and Propensity Score Matching (PSM) method for robustness tests.
+
+\subsection{Sample Selection and Data Sources}
+This paper takes the environmental administrative penalty data of China's A-share listed companies from 2015 to 2020 as the sample. Limited by data availability, we selected environmental administrative penalty data from 2015 onwards. Information on environmental administrative penalties for listed companies is concentrated in annual reports or corporate social responsibility reports, but some listed companies may choose not to disclose it. The objectivity and timeliness of the information are difficult to guarantee (Liu Liya et al., 2022), which is unfavorable for identifying the impact of environmental legal risks on listed companies. With the establishment and improvement of the environmental information disclosure system, environmental administrative penalty information has been gradually included in the scope of government environmental information disclosure. The environmental administrative penalty information disclosed by the government has better objectivity and higher quality.
+
+The raw data on environmental administrative penalties for listed companies in this paper were compiled by "Qingyue Data", a council member unit of the Green Finance Committee of the China Society for Finance and Banking, based on environmental administrative penalty decision letters disclosed by government departments at all levels. Through manual sorting by the author, the environmental administrative penalty data were matched with the financial and patent data of listed companies to obtain the data on environmental administrative penalties of China's A-share listed companies from 2015 to 2020. The financial data of listed companies comes from the Wind database and CSMAR database. This paper processed the raw data as follows: (1) Exclude enterprises that were treated as ST (Special Treatment) during the sample period; (2) Delete samples with missing variable observations; (3) Exclude financial industry samples. Summing up the environmental administrative penalty amounts of enterprises in the same year, we obtained 5,023 observation samples.
+
+\subsection{Variable Descriptions}
+
+\subsubsection{Environmental Administrative Penalty Intensity}
+Given that the scale of listed companies varies greatly, larger companies have stronger risk resistance capabilities, and the impact of the same amount of environmental administrative penalty is smaller. Unlike the conventional measurement method of penalty frequency, this paper uses the ratio of the total amount of environmental administrative penalties received by the listed company in the current year to the total assets of the listed company to represent the intensity of environmental administrative penalties. To increase readability, the ratio is multiplied by one thousand to obtain the environmental administrative penalty intensity indicator ($fine$). The larger the indicator, the greater the intensity of environmental administrative penalties. At the same time, other standardization methods are used for robustness tests. In the further analysis, a comparative analysis is conducted on whether enterprises are more concerned about the number of penalties or the intensity of penalties.
+
+\subsubsection{Dependent Variable: Green Technology Innovation}
+Referencing the research of Li Qingyuan and Xiao Zehua (2020), we first retrieved the patent application and authorization status of listed companies from the State Intellectual Property Office of China (SIPO). Then, we used the IPC classification codes for green patents launched by WIPO in 2010 for matching to obtain the number of green technology innovation patents applied for by listed companies and their subsidiaries in the current year. After adding 1, the logarithm is taken to obtain the indicator measuring corporate green technology innovation ($Tgreen$). The larger the indicator, the higher the corporate green technology innovation capability.
+
+\subsubsection{Control Variables}
+Drawing on the research of Li Qingyuan and Xiao Zehua (2020), Zhang Qi and Zou Mengqi (2022), and Qi Shaozhou et al. (2018), this paper selects the following 10 control variables that may affect the green technology innovation of listed companies. Variable definitions are shown in Table 1.
+
+\begin{table}[H]
+    \centering
+    \caption{Control Variable Definitions}
+    \label{tab:3-1}
+    \footnotesize
+    \begin{tabular}{lll}
+        \toprule
+        \textbf{Variable Definition} & \textbf{Name} & \textbf{Measurement Method} \\
+        \midrule
+        Firm Size & $lnSize$ & Natural logarithm of total assets \\
+        Capital Structure & $Lev$ & Total liabilities / Total assets \\
+        Cash Flow Ratio & $Cfo$ & Net cash flow from operating activities / Total assets \\
+        Firm Growth & $Growth$ & (Current revenue - Prior revenue) / Prior revenue \\
+        Historical Performance & $Lroa$ & Prior net profit / Prior total assets \\
+        Market Power & $lnMarket$ & ln(Sales revenue / Operating costs) \\
+        Capital Intensity & $lnDensity$ & ln(Total fixed assets / Number of employees) \\
+        Management Incentive & $Share$ & Management shareholding / Total share capital $\times$ 100\% \\
+        CEO Public Background & $PC$ & 1 if CEO served in government, 0 otherwise \\
+        Listing Age & $lnAge$ & ln(Years of listing + 1) \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{Descriptive Statistics}
+The sample of this paper is the panel data of 914 enterprises that received environmental administrative penalties during the period 2015-2020. Since some enterprises went public during the period, it is an unbalanced panel. There are a total of 5,023 observations, of which the total annual fine amount for 1,456 observations is greater than 0. The descriptive statistics of the main variables are shown in Table 2. The mean of $fine$ is 0.013, the minimum value is 0, and the maximum value is 3.885. This is because some enterprises did not receive environmental administrative penalties in some years, while a small number of enterprises received fines amounting to hundreds of millions of yuan in the current year. The statistical values of the remaining variables are basically consistent with existing research and conform to the actual situation in China.
+
+\begin{table}[H]
+    \centering
+    \caption{Descriptive Statistics}
+    \label{tab:3-2}
+    \footnotesize
+    \begin{tabular}{lcccccc}
+        \toprule
+        Type & Name & Var & Mean & Min & Max & SD \\
+        \midrule
+        Dependent & Green Tech Innovation & $Tgreen$ & 1.491 & 0 & 7.782 & 1.432 \\
+        Independent & Penalty Intensity & $fine$ & 0.013 & 0 & 3.885 & 0.088 \\
+        Controls & Firm Size & $lnSize$ & 23.022 & 19.53 & 29.95 & 1.491 \\
+         & Capital Structure & $Lev$ & 0.484 & 0.014 & 1.181 & 0.191 \\
+         & Cash Flow Ratio & $Cfo$ & 0.054 & -0.362 & 0.652 & 0.064 \\
+         & Firm Growth & $Growth$ & 0.17 & -0.481 & 2.199 & 0.356 \\
+         & Historical Performance & $Lroa$ & 0.04 & -0.593 & 0.655 & 0.056 \\
+         & Market Power & $lnMarket$ & 4.291 & -1.775 & 4.525 & 0.278 \\
+         & Capital Intensity & $lnDensity$ & 14.621 & 10.87 & 18.7 & 0.9 \\
+         & Mgmt Incentive & $Share$ & 10.231 & 0 & 100 & 17.376 \\
+         & CEO Background & $PC$ & 0.293 & 0 & 1 & 0.455 \\
+         & Listing Age & $lnAge$ & 2.396 & 0 & 3.434 & 0.746 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Baseline Regression Results}
+
+The baseline regression results are shown in Table 3. The impact of environmental administrative penalty intensity ($fine$) on green technology innovation is significantly positive at the 1\% level. Leading the dependent variable by one year did not change the regression results. This indicates that an increase in the intensity of environmental administrative penalties can promote corporate green technology innovation. The Variance Inflation Factor (VIF) test for the variables in the main regression (3) found that the VIF values of all variables were less than 2.5, far less than 10, so there is no serious multicollinearity problem in the regression. Hypothesis H1 is verified.
+
+Taking column (3) as an example, if the intensity of environmental administrative penalties increases by one standard deviation, corporate green technology innovation increases by 2.92\% ($0.422 \times 0.103 / 1.491$). The impact of environmental administrative penalties on corporate green technology innovation is consistent with the expectation of the "Porter Hypothesis". When the intensity of environmental administrative penalties faced by an enterprise is large, the pressure of "direct costs" faced by the enterprise and the external pressure brought by laws and public opinion make the enterprise realize the unsustainability of illegal behavior. The enterprise carries out green technology innovation to maintain a good social image. At the same time, corporate managers also realize the government's determination to protect the environment and carry out green technology innovation to achieve future "profit maximization". With the green technology innovation variable led by one period, the impact of environmental administrative penalty intensity remains significant. On the one hand, this illustrates the robustness of the results; on the other hand, it also illustrates that the cost pressure brought by the increase in environmental administrative penalty intensity and the expectation of future "profit maximization" are persistent, urging enterprises to continue to carry out green technology innovation activities.
+
+\begin{table}[H]
+    \centering
+    \caption{Impact of Environmental Administrative Penalties on Corporate Green Technology Innovation}
+    \label{tab:3-3}
+    \footnotesize
+    \begin{tabular}{lcccccc}
+        \toprule
+        Variable & (1) & (2) & (3) & (4) & (5) & (6) \\
+         & $Tgreen$ & $Tgreen$ & $Tgreen$ & $F.Tgreen$ & $F.Tgreen$ & $F.Tgreen$ \\
+        \midrule
+        $fine$ & 0.564*** & 0.446*** & 0.422*** & 0.489*** & 0.435*** & 0.420*** \\
+         & (0.102) & (0.114) & (0.103) & (0.087) & (0.094) & (0.093) \\
+        Constant & -8.266*** & -6.890*** & -11.398*** & -8.262*** & -7.293*** & -11.714*** \\
+         & (0.870) & (0.914) & (0.855) & (0.837) & (0.895) & (0.841) \\
+        \midrule
+        Controls & Yes & Yes & Yes & Yes & Yes & Yes \\
+        Region FE & No & Yes & Yes & No & Yes & Yes \\
+        Time FE & No & Yes & Yes & No & Yes & Yes \\
+        Industry FE & No & No & Yes & No & No & Yes \\
+        Observations & 5023 & 5023 & 5023 & 4785 & 4785 & 4785 \\
+        $R^2$ & 0.275 & 0.317 & 0.536 & 0.277 & 0.314 & 0.521 \\
+        \bottomrule
+        \multicolumn{7}{l}{\scriptsize Note: *, **, *** denote significance at 10\%, 5\%, 1\% levels. Parentheses contain standard errors clustered at firm level.}
+    \end{tabular}
+\end{table}
+
+\section{Robustness Checks}
+
+\subsection{Endogeneity Treatment}
+\textbf{Heckman Two-Step Method.} The raw data on environmental administrative penalties in this paper comes from government portal websites. However, due to local protectionism and potential issues with website update efficiency, there is a possibility of incomplete disclosure of environmental administrative penalty information on government portals. This leads to non-random sample collection, which may cause endogeneity due to sample selection bias. Here we use the Heckman two-step method to exclude the endogeneity problem that may be caused by sample selection bias.
+
+In the first stage of the Heckman two-step method, we use the Probit model regression. The dependent variable is whether the enterprise received an environmental administrative penalty in the current year: $fine\_dummy$. Since a certain decision of an enterprise is easily influenced by other listed companies in the same region and industry observed recently (Kaustia and Rantala, 2015), according to the "peer influence theory", when misconduct is pointed out as unethical and faces penalties from regulatory authorities, peer managers will tend to reduce misconduct (Gino et al., 2009). When an enterprise faces environmental administrative penalties, its peers receive a "deterrent signal", and peer enterprises' perception of environmental violation risks and costs continues to rise (Fan Ziying and Zhao Renjie, 2019), thereby reducing the possibility of violation, but the transmission of the signal takes time. Therefore, the mean of environmental administrative penalty intensity received by other enterprises in the same industry and region in the previous year ($L.fine\_partner$) is calculated as the instrumental variable for $fine\_dummy$.
+
+In the second stage, we add the Inverse Mills Ratio obtained in the first stage to equation(1) for regression. The results in Table 4 show that the regression coefficient of the instrumental variable in the first stage is significantly negative at the 1\% level, meaning that when enterprises observe peer penalties, they reduce environmental violations. In the second stage, the regression coefficient of $fine$ is significantly positive at the 1\% level. The Inverse Mills Ratio is not significant, indicating that the sample selection bias is not obvious and has little impact on the main regression. To further exclude the impact that sample selection bias might bring, this paper also removes samples where the observed value of the environmental administrative penalty amount in the current year is 0, keeping only samples where the environmental administrative penalty is greater than 0. Using equation(1) for regression testing again, the coefficient of $fine$ is still significantly positive at the 1\% level. Therefore, after controlling for endogeneity issues, the conclusion that environmental administrative penalties promote corporate green technology innovation is still supported.
+
+\begin{table}[H]
+    \centering
+    \caption{Endogeneity Treatment: Heckman Two-Step Method}
+    \label{tab:3-4}
+    \footnotesize
+    \begin{tabular}{lc}
+        \toprule
+         & (1) Heckman \\
+        \midrule
+        \textbf{First Stage Regression} & $fine\_dummy$ \\
+        $L.fine\_partner$ & -2.039*** \\
+         & (0.584) \\
+        Constant & -2.89*** \\
+         & (0.859) \\
+        Controls/FE & Yes \\
+        \midrule
+        \textbf{Second Stage Regression} & $Tgreen$ \\
+        $fine$ & 0.490*** \\
+         & (0.188) \\
+        lambda & 0.0835 \\
+         & (0.331) \\
+        Constant & -12.923*** \\
+         & (1.380) \\
+        Controls/FE & Yes \\
+        \midrule
+        Observations & 3873 \\
+        Wald-chi2 & 1836.92 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Propensity Score Matching (PSM)}
+Referencing the research of Wang Huiling and Kong Rong (2019) and Liu et al. (2021), the Propensity Score Matching method is adopted to enhance the comparability between the treatment group and the control group and verify the robustness of the research results. We construct a dummy variable $fine\_dummy$ for whether the enterprise received an environmental administrative penalty. If the amount of environmental administrative penalty received by the enterprise is greater than 0, $fine\_dummy=1$, otherwise it equals 0; subsequently, a logit model is used to regress $fine\_dummy$ with all control variables and whether the enterprise is in a heavy pollution industry ($pollution$) as covariates to calculate the propensity score.
+
+There is no consensus in the academic community on which matching method is the best. If multiple matching methods yield consistent conclusions, the robustness of the results can be proven (Wang Huiling and Kong Rong, 2019). Therefore, this paper selects 5 mainstream matching methods. The comparison of sample characteristics before and after k (k=5) nearest neighbor matching is shown in Table 5. The results of other matches are limited by space, and Table 6 shows the overall matching balance test results.
+
+\begin{table}[H]
+    \centering
+    \caption{Comparison of Sample Characteristics Before and After k (k=5) Nearest Neighbor Matching}
+    \label{tab:3-5}
+    \footnotesize
+    \begin{tabular}{lccccc}
+        \toprule
+        Variable & Sample & Mean (Treated) & Mean (Control) & Bias & t-value \\
+        \midrule
+        $lnSize$ & Unmatched & 23.393 & 22.822 & 38.8 & 12.95*** \\
+         & Matched & 23.393 & 23.404 & -0.8 & -0.19 \\
+        $Lev$ & Matched & 0.50532 & 0.50199 & 1.8 & 0.47 \\
+        $Cfo$ & Matched & 0.05979 & 0.06093 & -1.8 & -0.48 \\
+        $pollution$ & Matched & 0.40865 & 0.40096 & 1.6 & 0.42 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\textbf{Balance Test:} A good matching method should solve the balance problem between the treatment group and the control group. The balance test results are shown in Table 6. After matching, the standardized bias of the explanatory variables decreased significantly. The total bias was significantly reduced and was less than the 20\% red line standard stipulated by the balance test. The pseudo R2 and LR statistics decreased significantly. It can be seen that using the PSM propensity score matching method effectively reduced the distribution difference of explanatory variables between the control group and the treatment group, eliminating the estimation bias caused by sample self-selection bias.
+
+\begin{table}[H]
+    \centering
+    \caption{Balance Test Results of Explanatory Variables Before and After PSM}
+    \label{tab:3-6}
+    \footnotesize
+    \begin{tabular}{lccc}
+        \toprule
+        Matching Method & Pseudo R2 & LR Stat & Std Bias (\%) \\
+        \midrule
+        Unmatched & 0.031 & 188.93 & 12.9 \\
+        k-Nearest (k=5) & 0.001 & 3.21 & 1.3 \\
+        Caliper & 0.001 & 3.77 & 1.4 \\
+        Caliper within k & 0.000 & 1.72 & 1.0 \\
+        Kernel & 0.000 & 1.72 & 1.0 \\
+        Spline & 0.003 & 10.51 & 2.7 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\textbf{Impact Effect Calculation:} The Average Treatment Effect on the Treated (ATT) of the treatment group after matching is shown in Table 7. The econometric results obtained using the 5 matching methods are basically consistent. The treatment group and the control group have a significant positive difference at the 1\% significance level, which further proves the robustness of the baseline results.
+
+\begin{table}[H]
+    \centering
+    \caption{Treatment Effect of Propensity Score Matching}
+    \label{tab:3-7}
+    \footnotesize
+    \begin{tabular}{lccc}
+        \toprule
+        Matching Method & ATT & SE & T-stat \\
+        \midrule
+        k-Nearest (k=5) & 0.174*** & 0.052 & 3.35 \\
+        Caliper (0.020) & 0.173*** & 0.052 & 3.32 \\
+        Caliper within k & 0.158*** & 0.048 & 3.25 \\
+        Kernel & 0.180*** & 0.048 & 3.73 \\
+        Spline & 0.152*** & 0.043 & 3.53 \\
+        Mean & 0.167 & - & - \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Excluding Competitive Policy Interference}
+This part excludes other policies that may affect the green technology innovation of listed enterprises to ensure the robustness of the regression results.
+
+First, the Environmental Protection Tax. Referencing the research of Liu Jinke and Xiao Yiyang (2022), to identify the potential impact of the Environmental Protection Tax, a triple difference interaction term ($Tax_{r,j,t}$) of environmental protection tax regional dummy variable ($Reform_r$) $\times$ industry pollution characteristic variable ($Polluted_j$) $\times$ time dummy variable ($Post_t$) is added to the regression equation. In column (1), $Tax_{r,j,t}$ is used as a control variable; in column (2), samples with $Tax_{r,j,t}=1$ are excluded to eliminate the impact of the implementation of the Environmental Protection Tax on corporate green technology innovation. Specifically, after the implementation of the "Environmental Protection Tax Law of the People's Republic of China", $Reform_r=1$ for regions where local pollution taxes and fees increased, otherwise $Reform_r=0$. If the industry to which the enterprise belongs is a heavy pollution industry, then $Polluted_j=1$, otherwise it is 0. The implementation time of the environmental protection tax is 2018, so $Post_t=1$ for 2018 and after, and 0 before.
+
+Second, the pollution rights trading system implemented in 2007 and the carbon emissions trading system piloted in 2011. Since the years are both before 2015, they cannot be used as control variables. Columns (3) and (4) exclude samples from pollution rights trading pilot regions and carbon emissions trading pilot regions, respectively, to exclude the impact of other policies on environmental administrative penalties.
+
+The results of excluding these three competitive policies are shown in Table 8. The coefficient of $fine$ is always positively significant at least at the 5\% level. This indicates that competitive policies did not affect the significance of the baseline regression, verifying the robustness of the research results.
+
+\begin{table}[H]
+    \centering
+    \caption{Regression Results Excluding Competitive Policy Effects}
+    \label{tab:3-8}
+    \footnotesize
+    \begin{tabular}{lcccc}
+        \toprule
+        Variable & (1) & (2) & (3) & (4) \\
+         & $Tgreen$ & $Tgreen$ & $Tgreen$ & $Tgreen$ \\
+        \midrule
+        $fine$ & 0.423*** & 0.437*** & 0.278** & 0.308** \\
+         & (0.104) & (0.138) & (0.112) & (0.122) \\
+        $Tax$ & -0.049 & & & \\
+         & (0.052) & & & \\
+        Constant & -11.389*** & -10.714*** & -11.235*** & -11.403*** \\
+         & (0.855) & (0.899) & (1.003) & (1.068) \\
+        Controls/FE & Yes & Yes & Yes & Yes \\
+        Observations & 5023 & 3940 & 2983 & 3053 \\
+        $R^2$ & 0.536 & 0.500 & 0.591 & 0.444 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Replacing Variable Measurement Methods}
+First, we change the measurement method of the dependent variable ($Tgreen$).
+(1) Referencing the research of Wang Banban and Qi Shaozhou (2016), Liu Jinke and Xiao Yiyang (2022), we use the ratio of the total number of green patents applied for by the enterprise in the current year to the total number of invention patents and utility model patents applied for ($Greenrate1$), and the ratio of the total number of green patents obtained by the enterprise in the current year to the total number of invention patents and utility model patents obtained ($Greenrate2$) as dependent variables and use equation(1) for regression.
+(2) Referencing the research of Li Qingyuan and Xiao Zehua (2020), we use the logarithm of (1 + number of green patents authorized by the enterprise in the current year) ($Tgreen2$) as the dependent variable and use equation(1) for regression. Remeasuring the impact of environmental administrative penalty intensity on corporate green technology innovation, the results show that no matter how the measurement method of the dependent variable is changed, the conclusion remains robust.
+
+Then, we change the measurement method of the independent variable ($fine$).
+(1) Referencing the research of Yu Lianchao et al. (2019) on environmental protection tax, we use the ratio of environmental administrative penalty amount to operating revenue to measure environmental administrative penalty intensity ($fine1$).
+(2) We use the number of environmental administrative penalties received by the enterprise in the current year to measure environmental administrative penalty intensity ($fine2$). The number of penalties for an enterprise is related to whether the enterprise complies with environmental protection regulations. For the same enterprise, the more penalties, the more total costs it usually pays. However, the number of penalties is unrelated to the other financial performance of the enterprise, thereby excluding the impact of corporate financial factors on penalty performance.
+(3) If the total amount of environmental administrative penalties received by the enterprise in the current year is greater than the total amount of environmental administrative penalties in the previous year, then $fine3=1$, otherwise $fine3=0$. This measures the environmental administrative penalty intensity. The growth of the amount of environmental administrative penalties received by the enterprise makes the enterprise's expectation of high illegal costs in the future clearer.
+
+Table 9 results show that no matter how the measurement method of the independent variable is changed, the regression coefficient of environmental administrative penalty intensity is significantly positive at the 5\% level, which is consistent with the conclusion of this paper.
+
+\begin{table}[H]
+    \centering
+    \caption{Replacing Variable Measurement Methods}
+    \label{tab:3-9}
+    \footnotesize
+    \begin{tabular}{lcccccc}
+        \toprule
+        Variable & (1) & (2) & (3) & (4) & (5) & (6) \\
+         & $Gr\_rate1$ & $Gr\_rate2$ & $Tgreen2$ & $Tgreen$ & $Tgreen$ & $Tgreen$ \\
+        \midrule
+        $fine$ & 0.030* & 0.050* & 0.395*** & & & \\
+         & (0.018) & (0.028) & (0.115) & & & \\
+        $fine1$ & & & & 0.239*** & & \\
+         & & & & (0.057) & & \\
+        $fine2$ & & & & & 0.005** & \\
+         & & & & & (0.003) & \\
+        $fine3$ & & & & & & 0.137** \\
+         & & & & & & (0.057) \\
+        Constant & -0.259*** & -0.228** & -9.166*** & -11.391*** & -11.287*** & -11.251*** \\
+        Controls/FE & Yes & Yes & Yes & Yes & Yes & Yes \\
+        Obs & 5023 & 5023 & 5023 & 5023 & 5023 & 5023 \\
+        $R^2$ & 0.282 & 0.275 & 0.527 & 0.536 & 0.536 & 0.536 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Excluding the Influence of Corporate Strategy Selection}
+For enterprises that are implementing strategic expansion and opening up business maps, faced with new business development needs, even if they do not face environmental administrative penalties, they will increase the level of green technology innovation. The background of the corporate CEO also has an impact on the choice of corporate green technology innovation strategy (Quan et al., 2021). Enterprises with executives who have green experience pay more attention to corporate green technology innovation (Lu Jianci and Jiang Guangsheng, 2022) and may have development strategies different from other enterprises.
+
+To exclude the influence of corporate strategy, (1) referencing the research of Miles et al. (1978) and Liu Hang (2016), enterprises in the same industry are divided into three categories according to different corporate strategy choices: Prospector, Analyzer, and Defender enterprises. Miles et al. believe that Prospector enterprises are enterprises that actively carry out innovation, continuously explore new products and new market opportunities, and face many changes and uncertainties. Defender enterprises are just the opposite. Managers of Defender enterprises position products and markets in a limited range, pursuing corporate stability and reducing uncertainty. The strategic aggressiveness of Analyzer enterprises is exactly between the two. Consistent with the research of Miles et al. (1978) and Liu Hang (2016), this paper constructs a corporate strategy index variable and divides enterprises into three categories. Using corporate strategy choice as a grouping variable, equation(1) is used for regression analysis. The results are shown in Table 10. Columns (1)-(3) correspond to Defender, Analyzer, and Prospector enterprises respectively. The results show that the promotion effect of environmental administrative penalties on the green technology innovation of Defender and Analyzer enterprises is significant. However, the impact on the green technology innovation of Prospector enterprises, which are already committed to innovation strategy, is not significant. This can verify that environmental administrative penalties prompted enterprises that were not originally committed to innovation to carry out green technology innovation, rather than the accidental result of the enterprise's own development strategy, proving the robustness of the baseline regression.
+
+Whether the corporate CEO has green experience also affects the corporate strategy. Referencing the research of Lu Jianci and Jiang Guangsheng (2022), taking whether the CEO has green experience as a grouping variable, equation(1) is used for regression analysis. The results are shown in Table 10. Columns (4) and (5) correspond to CEOs without green experience and with green experience respectively. The results show that for enterprises with CEOs without green experience, the impact of environmental administrative penalties on their green technology innovation is significantly positive. While for the enterprise group with CEOs with green experience, perhaps due to the small sample size, the regression results are not significant. This can exclude the impact of CEO green experience on corporate green technology innovation, proving the robustness of the baseline regression. This paper also used the corporate strategy index and CEO green experience as control variables for regression analysis, which did not affect the baseline regression results. Limited by space, they are not shown for now.
+
+\begin{table}[H]
+    \centering
+    \caption{Excluding the Impact of Corporate Strategy on Green Technology Innovation}
+    \label{tab:3-10}
+    \footnotesize
+    \begin{tabular}{lccccc}
+        \toprule
+         & (1) & (2) & (3) & (4) & (5) \\
+         & Defender & Analyzer & Prospector & No Green Exp & Has Green Exp \\
+        Variable & $Tgreen$ & $Tgreen$ & $Tgreen$ & $Tgreen$ & $Tgreen$ \\
+        \midrule
+        $fine$ & 0.395** & 0.575* & 0.189 & 0.420*** & 0.398 \\
+         & (0.196) & (0.301) & (0.533) & (0.109) & (0.678) \\
+        Constant & -11.654*** & -11.179*** & -10.720*** & -11.586*** & -10.082*** \\
+         & (1.310) & (1.334) & (1.491) & (0.889) & (2.158) \\
+        Controls/FE & Yes & Yes & Yes & Yes & Yes \\
+        Observations & 1871 & 1606 & 1001 & 4515 & 472 \\
+        $R^2$ & 0.615 & 0.528 & 0.541 & 0.509 & 0.707 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Mechanism Test of Environmental Administrative Penalties ``Forcing'' Corporate Green Technology Innovation}
+Based on the theoretical analysis of this paper, the mechanism by which environmental administrative penalties "force" corporate green technology innovation is the external pressure of media attention and the optimization of internal resource allocation through R\&D investment. Referencing the research of Li Qingyuan and Xiao Zehua (2020), the total volume of media reports is used to measure the external pressure of media attention ($news$). To increase readability, the total volume of media reports is divided by 100. The raw data comes from the CNRDS financial news database. Using the proportion of the number of R\&D personnel to the number of all employees in the company: $R\&D\ rate$, to measure the enterprise's "R\&D investment", the raw data comes from CSMAR. It is worth noting that enterprises carrying out green technology innovation do not necessarily need to increase R\&D investment. Enterprises can increase green technology innovation by squeezing out conventional innovation (Liu Jinke and Xiao Yiyang, 2022). An increase in the proportion of R\&D personnel not only represents the enterprise's commitment to innovation but also highlights the transformation of the enterprise's development strategy (Liu Xin and Xue Youzhi, 2015). Referencing the mechanism test method of Wang Feng and Ge Xing (2022), the following models are constructed for empirical testing.
+
+\begin{equation} \label{eq:3-2}
+M_{i,t} = \beta_0 + \beta_1 fine_{i,t} + \beta_n \mathbb{X}_{i,t} + \sum Area + \sum Year + \sum Ind + \varepsilon_{i,t}
+\end{equation}
+
+\begin{equation} \label{eq:3-3}
+Tgreen_{i,t} = \beta_0 + \beta_1 M_{i,t} + \beta_n \mathbb{X}_{i,t} + \sum Area + \sum Year + \sum Ind + \varepsilon_{i,t}
+\end{equation}
+
+Where $M_{i,t}$ represents $news$ or $R\&D\ rate$ of listed company $i$ in year $t$, and other variable settings are consistent with equation(1). First, use equation(2) to test whether environmental administrative penalty intensity ($fine$) can trigger an increase in media attention and the proportion of R\&D personnel of listed companies. Then use equation(3) to test the impact of media attention and R\&D investment on corporate green technology innovation. The mechanism test results are shown in Table 11:
+
+\begin{table}[H]
+    \centering
+    \caption{Mechanism Test of the Forcing Effect of Environmental Administrative Penalties}
+    \label{tab:3-11}
+    \footnotesize
+    \begin{tabular}{lcccc}
+        \toprule
+         & \multicolumn{2}{c}{Media Attention} & \multicolumn{2}{c}{R\&D Investment} \\
+        Variable & (1) & (2) & (3) & (4) \\
+         & $news$ & $Tgreen$ & $R\&D\ rate$ & $Tgreen$ \\
+        \midrule
+        $fine$ & 0.529** & & 0.016** & \\
+         & (0.228) & & (0.007) & \\
+        $news$ & & 0.024** & & \\
+         & & (0.011) & & \\
+        $R\&D\ rate$ & & & & 2.563*** \\
+         & & & & (0.400) \\
+        Constant & -15.974*** & -10.952*** & -0.042 & -11.483*** \\
+         & (2.955) & (0.859) & (0.067) & (0.904) \\
+        Controls/FE & Yes & Yes & Yes & Yes \\
+        Observations & 4951 & 4951 & 4283 & 4283 \\
+        $R^2$ & 0.396 & 0.540 & 0.444 & 0.531 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The regression results show that the impact of environmental administrative penalty intensity on media attention is positively significant at the 5\% level, and the impact of media attention on corporate green technology innovation is positively significant at the 5\% level. It can be seen that environmental administrative penalties, especially those with higher intensity, can increase the media attention of enterprises. For enterprises receiving larger environmental administrative penalties, both the information on punishment and the information on improvement actions may gain more media attention. Negative media attention can spur enterprises to transform production methods as soon as possible and achieve green innovation. Positive media attention on improvement actions after punishment will also make enterprises further carry out green innovation to maintain a good social image.
+
+The impact of environmental administrative penalty intensity on R\&D investment is positively significant at the 5\% level, and the impact of R\&D investment on corporate green technology innovation is positively significant at the 1\% level. It can be seen that greater environmental administrative penalty intensity makes enterprises realize that the development strategy of long-term active violation is unsustainable, and enterprises invest more resources in R\&D, rather than just increasing green innovation by squeezing out other innovations. Increasing the proportion of R\&D personnel can improve the enterprise's green technology knowledge system, which is conducive to the enterprise carrying out green technology innovation, making the enterprise's technology level comply with environmental protection requirements, and enhancing the competitiveness of corporate products. Thus, hypotheses H2 and H3 are verified.
+
+\section{Comparative Analysis of Environmental Administrative Penalty Intensity and Frequency}
+Before 2018, the average fine of environmental administrative penalties in China remained at a relatively low level, while the total number of environmental administrative penalties in China continued to increase. However, since 2018, the average fine has increased significantly, from 49,700 yuan in 2017 to 82,200 yuan in 2018, and the total number of environmental violations by enterprises nationwide began to decrease gradually. The number of environmental administrative penalties received by an enterprise (variable $fine2$ in robustness check 3.3.4) is the research method generally adopted by the current academic community for environmental administrative penalties. The robustness check found that the baseline regression of the number of environmental administrative penalties on corporate green technology innovation was positively significant at the 5\% level. So for corporate managers, are they more concerned about the number of penalties ($fine2$) or the intensity of penalties ($fine$)?
+
+To compare the impact of penalty frequency and penalty intensity on enterprises, the mechanism test method in section 5 is used to explore the mechanism of $fine2$ affecting green technology innovation. The empirical test found that the number of environmental administrative penalties could not trigger more R\&D investment and external media attention. Referencing section 4.5 of the robustness check in this paper, exclude the impact of corporate strategy choice on green technology innovation. The results are shown in Table 12. Columns (3)-(5) correspond to Defender, Analyzer, and Prospector enterprises respectively. After excluding the influence of corporate strategy choice, the impact of the number of environmental administrative penalties ($fine2$) on green technology innovation is no longer significant.
+
+It can be seen that the increase in the number of environmental administrative penalties received by enterprises cannot bring a significant impact on media attention and the enterprise's own R\&D investment. According to the attention economy theory, information is infinite, and attention is limited. Only when an event is important enough is it sufficient to arouse widespread concern and prompt relevant subjects to take countermeasures (Wang Zongsheng and Li Lasheng, 2007). Therefore, when environmental administrative penalties become common, only high-intensity environmental administrative penalties are sufficient to attract media attention and motivate enterprises to increase R\&D investment, ultimately achieving green technology innovation. Therefore, merely increasing the number of environmental administrative penalties is difficult to force Defender and Analyzer enterprises to transform their development methods. Corporate managers are more concerned about environmental administrative penalty intensity, not the number of penalties.
+
+\begin{table}[H]
+    \centering
+    \caption{Impact of Environmental Administrative Penalty Frequency on R\&D Personnel Ratio and Green Technology Innovation}
+    \label{tab:3-12}
+    \footnotesize
+    \begin{tabular}{lccccc}
+        \toprule
+         & (1) & (2) & (3) & (4) & (5) \\
+         & Media & R\&D Input & Defender & Analyzer & Prospector \\
+        Variable & $news$ & $R\&D\ rate$ & $Tgreen$ & $Tgreen$ & $Tgreen$ \\
+        \midrule
+        $fine2$ & 0.013 & 0.000 & 0.033 & 1.887 & 0.610 \\
+         & (0.017) & (0.000) & (0.222) & (1.180) & (1.206) \\
+        Constant & -15.776*** & -0.038 & -11.564*** & -11.051*** & -10.681*** \\
+         & (3.018) & (0.068) & (1.316) & (1.341) & (1.480) \\
+        Controls/FE & Yes & Yes & Yes & Yes & Yes \\
+        Observations & 4951 & 4283 & 1905 & 1606 & 1001 \\
+        $R^2$ & 0.396 & 0.444 & 0.641 & 0.529 & 0.541 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Heterogeneity and Innovation Type Analysis}
+
+Considering that heavy pollution industries mainly engage in non-ferrous metal mining and dressing, and manufacturing of chemical raw materials and chemical products, heavy pollution enterprises are more likely to attract the attention of regulatory agencies and are subject to stricter environmental regulations (Guo et al., 2023). Moving from environmental violation to meeting environmental protection requirements, the green technology innovation required for the heavy pollution industry is more difficult and requires more R\&D investment compared to other industries. Therefore, this part divides enterprises into two groups: heavy pollution industries and other industries, for heterogeneity analysis. Columns (1)-(3) are the full sample, non-heavy pollution, and heavy pollution industry samples respectively. From the regression results in Table 13, it can be seen that the full sample, non-heavy pollution, and heavy pollution samples are all significantly positive at least at the 5\% level. There is no difference in direction or significance in the overall green technology innovation impact of environmental administrative penalties on heavy pollution and non-heavy pollution enterprises.
+
+\begin{table}[H]
+    \centering
+    \caption{Heterogeneity Analysis of the Impact of Environmental Administrative Penalties on Corporate Green Technology Innovation}
+    \label{tab:6-1}
+    \footnotesize
+    \begin{tabular}{lccc}
+        \toprule
+        Variable & (1) & (2) & (3) \\
+         & Full Sample & Non-Heavy Pollution & Heavy Pollution \\
+         & $Tgreen$ & $Tgreen$ & $Tgreen$ \\
+        \midrule
+        $fine$ & 0.422*** & 0.380*** & 0.606** \\
+         & (0.103) & (0.104) & (0.260) \\
+        Constant & -11.398*** & -11.423*** & -10.684*** \\
+         & (0.855) & (1.099) & (1.247) \\
+        Controls & Yes & Yes & Yes \\
+        Region FE & Yes & Yes & Yes \\
+        Time FE & Yes & Yes & Yes \\
+        Industry FE & Yes & Yes & Yes \\
+        Observations & 5023 & 3201 & 1822 \\
+        $R^2$ & 0.536 & 0.555 & 0.513 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+With climate change and environmental problems becoming increasingly serious, green technology innovation is of far-reaching significance to national development. According to the "Patent Law of the People's Republic of China", invention patents possess outstanding substantive features and significant technological progress, and the examination process during authorization is stricter. Invention patents have higher application difficulty and technical value, and are usually used to measure the level of substantive innovation of an enterprise, that is, Substantive Innovation (Guo et al., 2016). Utility model patents refer to practical technical solutions proposed for the shape, structure, or combination of products. The audit conditions are loose, so they are often used by enterprises as an innovation strategy to cater to investors and government supervision, that is, Strategic Innovation. Substantive innovation requires higher R\&D investment and technical level, but brings higher added value and market competitiveness, and can bring substantive improvements to corporate green production and environmental protection; Strategic innovation is relatively easy to implement, but the added value and market competitiveness it brings are limited. Based on this, this paper divides green technology innovation into substantive innovation and strategic innovation, while considering the difference between heavy pollution industries and other industries, to conduct heterogeneity analysis. The research results are shown in Table 14. Columns (1)-(3) correspond to the full sample, non-heavy pollution, and heavy pollution enterprises respectively, and columns (4)-(6) correspond to them.
+
+The study found that for the full sample, environmental administrative penalties can play a significant role in promoting both green substantive innovation and strategic innovation. For the heavy pollution industry, environmental administrative penalties significantly promoted its substantive innovation. For non-heavy pollution enterprises, environmental administrative penalties significantly promoted their strategic innovation. The main business of the heavy pollution industry determines that its production will bring a large amount of pollutant emissions. It is more difficult to improve its environmental friendliness. The technical content of invention patents is higher, which can reduce pollutant emissions more effectively in the long run, make enterprises meet environmental protection standards, and maintain a leading position in the industry. The non-heavy pollution industry itself emits less pollution, and it is easier to achieve environmental compliance compared to the heavy pollution industry, so carrying out strategic innovation is a more cost-effective choice.
+
+The implementation of environmental administrative penalties guides different types of enterprises to carry out strategies that are consistent with long-term profit maximization and China's sustainable development direction. It can be seen that the high efficiency and directionality of environmental administrative penalties as a government environmental governance method are significant. This result has reference significance for China to achieve green development.
+
+\begin{table}[H]
+    \centering
+    \caption{Analysis of Corporate Green Technology Innovation Types and Corporate Heterogeneity}
+    \label{tab:6-2}
+    \footnotesize
+    \begin{tabular}{lcccccc}
+        \toprule
+        Variable & (1) & (2) & (3) & (4) & (5) & (6) \\
+         & Green Invention & Green Invention & Green Invention & Green Utility & Green Utility & Green Utility \\
+         & Full Sample & Non-Heavy & Heavy & Full Sample & Non-Heavy & Heavy \\
+        \midrule
+        $fine$ & 0.302** & 0.178 & 0.743*** & 0.294*** & 0.342** & 0.158 \\
+         & (0.125) & (0.128) & (0.239) & (0.107) & (0.144) & (0.213) \\
+        Constant & -10.161*** & -10.593*** & -9.338*** & -8.775*** & -8.839*** & -7.714*** \\
+         & (0.828) & (1.057) & (1.098) & (0.704) & (0.934) & (1.088) \\
+        Controls & Yes & Yes & Yes & Yes & Yes & Yes \\
+        Region FE & Yes & Yes & Yes & Yes & Yes & Yes \\
+        Time FE & Yes & Yes & Yes & Yes & Yes & Yes \\
+        Industry FE & Yes & Yes & Yes & Yes & Yes & Yes \\
+        Observations & 5023 & 3201 & 1822 & 5023 & 3201 & 1822 \\
+        $R^2$ & 0.504 & 0.523 & 0.488 & 0.506 & 0.528 & 0.475 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Extension Analysis: Peer Effect and Moderating Effect}
+
+\subsection{Peer Effect Analysis}
+From the theoretical analysis section, it is known that when the government implements environmental administrative penalties, it transmits a signal of environmental administrative law enforcement intensity to local enterprises. Peer enterprises make expectations of illegal costs and illegal benefits based on observation. Do environmental administrative penalties have a peer effect? Is there a difference in the peer effect between penalty frequency and penalty intensity? These questions need to be verified, referencing the research of Shi Guifeng (2015). Construct variables as shown in Table 15.
+
+\begin{table}[H]
+    \centering
+    \caption{Definition of Variables Measuring Peer Effects}
+    \label{tab:4-1}
+    \small
+    \begin{tabular}{ll}
+        \toprule
+        \textbf{Variable} & \textbf{Meaning} \\
+        \midrule
+        $MeanArea_{j,t}$ & Average number of penalties for enterprises in region $j$ in year $t$ \\
+        $StrmeanArea_{j,t}$ & Average penalty intensity for enterprises in region $j$ in year $t$ \\
+        $MeanAreaInd_{j,k,t}$ & Average number of penalties for enterprises in industry $k$, region $j$, year $t$ \\
+        $StrmeanAreaInd_{j,k,t}$ & Average penalty intensity for enterprises in industry $k$, region $j$, year $t$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Considering that the transmission of environmental administrative penalty information has a certain time lag, lag the above variables by one period, replace the $fine$ variable in equation(1), and perform regression. To exclude the impact of current environmental administrative penalties on corporate green technology innovation, regression is performed only on samples that were not penalized in the current period. The regression results are shown in Table 16. The "peer effect" of the average number of penalties in the region is not significant; the "peer effect" is significantly positive after adding industry conditions; the "peer effect" of penalty intensity is significantly positive, and hypothesis H4 is verified. When the government imposes environmental administrative penalties on violating enterprises, it releases a signal of environmental administrative law enforcement intensity to the outside world. Peer enterprises re-weigh the relationship between costs and future benefits, carry out green technology innovation, and avoid violations. At the same time, compared to the average number of penalties, corporate managers are more concerned about the average penalty intensity. Compared to the penalty situation in the same region, corporate managers are more concerned about the penalty situation in the same region and the same industry.
+
+Combining the analysis of "media attention", "R\&D investment" and "peer effect", the phenomenon of "more penalties, more violations" in environmental administrative penalties in China from 2013 to 2017 can be understood. The number of penalties has little impact on corporate operating costs and future expectations, and it is difficult to incentivize enterprises to increase R\&D investment, and the level of corporate innovation has not been substantially improved. Moreover, the number of penalties is difficult to deter peer enterprises from carrying out green technology innovation, so environmental administrative penalties are "increasing". This research result has reference significance for deepening local governments' understanding of environmental protection law enforcement, reducing government "local protectionism" behavior, and achieving a win-win situation for environmental protection and economic development.
+
+\begin{table}[H]
+    \centering
+    \caption{Peer Effect Test}
+    \label{tab:4-2}
+    \footnotesize
+    \begin{tabular}{lcccc}
+        \toprule
+        Variable & (1) & (2) & (3) & (4) \\
+         & $Tgreen$ & $Tgreen$ & $Tgreen$ & $Tgreen$ \\
+        \midrule
+        $L.MeanArea_{j,t}$ & -0.007 & & & \\
+         & (0.014) & & & \\
+        $L.StrmeanArea_{j,t}$ & & 1.856** & & \\
+         & & (0.855) & & \\
+        $L.MeanAreaInd_{j,k,t}$ & & & 0.011** & \\
+         & & & (0.006) & \\
+        $L.StrmeanAreaInd_{j,k,t}$ & & & & 0.374*** \\
+         & & & & (0.078) \\
+        Constant & -10.826*** & -10.825*** & -10.837*** & -10.885*** \\
+         & (0.933) & (0.935) & (0.935) & (0.933) \\
+        Controls/FE & Yes & Yes & Yes & Yes \\
+        Observations & 2853 & 2853 & 2853 & 2853 \\
+        $R^2$ & 0.502 & 0.503 & 0.503 & 0.503 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Moderating Effect of Government Environmental Subsidies}
+The government is an important designer and participant in the national innovation system. It not only imposes environmental administrative penalties on enterprises but also provides environmental subsidies. Whether the impact of government subsidies on corporate innovation is "stimulating" or "weakening" has been debated (Guo Yue, 2018). The "stimulating" view believes that government subsidies can make up for market failures in the innovation process and promote corporate R\&D resource investment (Jaffe et al., 2015). The "weakening" view believes that information asymmetry between government and enterprises will cause subsidies to have a "reverse" guiding role, causing over-investment (Wei Zhihua et al., 2015), and the direct support object of government environmental subsidies is the enterprise's environmental protection engineering investment, not targeted at green technology innovation. Corporate catering to the government and opportunism may "weaken" corporate green technology innovation (Li Qingyuan and Xiao Zehua, 2020).
+
+So, how will government environmental subsidies affect corporate responses to environmental administrative penalties? This part references the research of Guo Yue (2018). The raw data on government environmental subsidies comes from CSMAR. Text matching is performed on the "Government Subsidy Details" under the "Non-operating Income" subject in the notes to the company's annual financial statements, screening for keywords related to environmental protection to obtain the total amount of corporate environmental subsidies. To make the impact of government environmental subsidies on enterprises of different scales comparable, the environmental subsidy amount is divided by the total assets of the enterprise to obtain the government environmental subsidy intensity. Construct a dummy variable $subsidy$. If the government environmental subsidy intensity is greater than the sample median, then $subsidy=1$, otherwise it is 0. Add $subsidy$ and the interaction term of $subsidy$ and $fine$ to equation(1) for regression verification. There are 653 observations where $fine \times subsidy > 0$, accounting for about 1/3 of observations where $fine > 0$. Considering that heavy pollution industries mainly have main businesses such as non-ferrous metal mining and dressing, chemical raw materials and chemical products manufacturing, heavy pollution enterprises are more likely to attract the attention of regulatory agencies and be subject to stricter environmental regulations (Guo et al., 2023). The green technology innovation required for the heavy pollution industry to move from environmental violation to compliance with environmental protection requirements is more difficult and requires more R\&D investment than other industries. Therefore, this part divides enterprises into two groups: heavy pollution industry and other industries, for heterogeneity analysis. Columns (1)-(3) are the full sample, non-heavy pollution, and heavy pollution industry samples respectively.
+
+The heterogeneity analysis in Section 7 shows that environmental administrative penalties have a promotion effect on green technology innovation in both non-heavy pollution and heavy pollution enterprises. Combining the regression results in Table 17, overall, government subsidies show a negative moderating effect, which is significant at the 5\% level. The negative moderating effect of non-heavy pollution enterprises is particularly obvious, and the moderating effect of heavy pollution is not significant. Environmental subsidies weakened the promotion effect of environmental administrative penalties on green technology innovation in non-heavy pollution enterprises. Government environmental subsidies target direct investment in environmental protection projects. If enterprises can meet environmental protection requirements by carrying out environmental protection engineering investment, there is no need to carry out green technology innovation. For the purpose of catering to the government, reducing risks, and reducing costs, corporate green technology innovation decreases. The environmental impact of the main business of the non-heavy pollution industry is smaller than that of the heavy pollution industry, and the difficulty of rectification when its involved business violates environmental protection regulations is smaller. Therefore, the negative moderating impact coefficient of government environmental subsidies on non-heavy pollution industries is larger. The main business of the heavy pollution industry is highly polluting, and it is usually difficult to make the enterprise comply with environmental protection requirements for a long time through simple environmental protection engineering construction. Carrying out green technology innovation has become a necessary option.
+
+\begin{table}[H]
+    \centering
+    \caption{Moderating Effect of Government Environmental Subsidies}
+    \label{tab:4-3}
+    \footnotesize
+    \begin{tabular}{lccc}
+        \toprule
+        Variable & (1) & (2) & (3) \\
+         & Full Sample & Non-Heavy Pollution & Heavy Pollution \\
+         & $Tgreen$ & $Tgreen$ & $Tgreen$ \\
+        \midrule
+        $fine$ & 0.865*** & 1.184*** & 0.552 \\
+         & (0.258) & (0.372) & (0.370) \\
+        $subsidy$ & 0.180*** & 0.245*** & 0.059 \\
+         & (0.046) & (0.061) & (0.065) \\
+        $fine \times subsidy$ & -0.550** & -0.914** & 0.099 \\
+         & (0.269) & (0.374) & (0.497) \\
+        Constant & -11.797*** & -11.993*** & -10.786*** \\
+         & (0.881) & (1.125) & (1.269) \\
+        Controls/FE & Yes & Yes & Yes \\
+        Observations & 5023 & 3201 & 1822 \\
+        $R^2$ & 0.539 & 0.560 & 0.514 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\end{document}
